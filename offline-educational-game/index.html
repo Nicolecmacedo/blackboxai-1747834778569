@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aprenda Brincando - Offline</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+    <!-- Local Tailwind CSS -->
+    <link rel="stylesheet" href="css/tailwind.min.css" />
+
+    <!-- Local Google Fonts -->
+    <link rel="stylesheet" href="css/fonts.css" />
+
+    <!-- Local Font Awesome -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        .game-title {
+            font-family: 'Comic Neue', cursive;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="game-title text-4xl text-center text-blue-600 font-bold float-animation">
+                <i class="fas fa-graduation-cap mr-2 text-yellow-500"></i>
+                Aprenda Brincando
+            </h1>
+            <p class="text-center text-gray-600 mt-2">Aprender é uma aventura divertida!</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Age Group Selection -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Escolha sua idade:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <button class="age-group w-full bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-child text-4xl text-yellow-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700">7-9 anos</h3>
+                        <p class="text-gray-500 mt-2 text-sm">Primeiros passos</p>
+                    </div>
+                </button>
+                <button class="age-group w-full bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-running text-4xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700">10-12 anos</h3>
+                        <p class="text-gray-500 mt-2 text-sm">Explorando mais</p>
+                    </div>
+                </button>
+                <button class="age-group w-full bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-user-graduate text-4xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700">13-14 anos</h3>
+                        <p class="text-gray-500 mt-2 text-sm">Avançando juntos</p>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Subject Selection (initially hidden, shown after age selection) -->
+        <section id="subjects" class="mb-12 hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Escolha o tema:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
+                <button class="subject w-full h-48 bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-purple-50 focus:outline-none focus:ring-4 focus:ring-purple-500/50 active:scale-95 group relative overflow-hidden" data-subject="leitura">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/0 group-hover:from-purple-500/5 group-hover:to-purple-500/10 transition-colors duration-300"></div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-book-reader text-4xl text-purple-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700">Leitura</h3>
+                        <p class="text-gray-500 mt-2 text-sm">Descubra histórias</p>
+                    </div>
+                </button>
+                <button class="subject w-full h-48 bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-red-50 focus:outline-none focus:ring-4 focus:ring-red-500/50 active:scale-95 group relative overflow-hidden" data-subject="escrita">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:to-red-500/10 transition-colors duration-300"></div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-pencil-alt text-4xl text-red-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700">Escrita</h3>
+                        <p class="text-gray-500 mt-2 text-sm">Crie suas histórias</p>
+                    </div>
+                </button>
+                <button class="subject w-full h-48 bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:scale-95 group relative overflow-hidden" data-subject="matematica">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:to-blue-500/10 transition-colors duration-300"></div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-calculator text-4xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700">Matemática</h3>
+                        <p class="text-gray-500 mt-2 text-sm">Resolva desafios</p>
+                    </div>
+                </button>
+                <button class="subject w-full h-48 bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-green-50 focus:outline-none focus:ring-4 focus:ring-green-500/50 active:scale-95 group relative overflow-hidden" data-subject="interpretacao">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/0 to-green-500/0 group-hover:from-green-500/5 group-hover:to-green-500/10 transition-colors duration-300"></div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-brain text-4xl text-green-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700">Interpretação</h3>
+                        <p class="text-gray-500 mt-2 text-sm">Entenda melhor</p>
+                    </div>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-lg mt-8">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <p class="text-gray-600">Desenvolvido com <span class="text-red-500">❤️</span> para ajudar crianças a aprender</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <span class="text-blue-500"><i class="fas fa-star"></i> Divertido</span>
+                <span class="text-green-500"><i class="fas fa-check"></i> Educativo</span>
+                <span class="text-purple-500"><i class="fas fa-heart"></i> Inclusivo</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Activities Database -->
+    <script src="data/activities.js"></script>
+    <!-- Game Logic -->
+    <script src="scripts.js"></script>
+</body>
+</html>
